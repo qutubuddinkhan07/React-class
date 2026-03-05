@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "aftab",
+      "email": "aftab123@gmail.com",
+      "age": "24",
+      "password": "123",
+      "dob": "20-12-20",
+      "city": "BBSR",
+      "gender": "Male"
+    },
+    {
+      "id": "a1a6",
+      "username": "qutubuddin",
+      "age": "18",
+      "email": "qutubuddinkhan8261@gmail.com",
+      "password": "123@hjshdfksjdQ",
+      "dob": "2026-03-06",
+      "city": "BBSR",
+      "gender": "male"
+    },
+    {
+      "id": "c27b",
+      "username": "neel",
+      "age": "21",
+      "email": "qutubuddinkhan8261@gmail.com",
+      "password": "jsdhkA@34324",
+      "dob": "2026-03-19",
+      "city": "BBSR",
+      "gender": "prefer-not-to-say"
+    },
+    {
+      "id": "6d59",
+      "username": "rupali",
+      "age": "23",
+      "email": "rupaliparida001@gmail.com",
+      "password": "Rupali@123",
+      "dob": "2026-08-20",
+      "city": "BBSR",
+      "gender": "female"
+    },
+    {
+      "id": "ebeb",
+      "username": "shonali",
+      "age": "32",
+      "email": "qutubuddinkhan8261@gmail.com",
+      "password": "Sdfsf12@",
+      "dob": "2026-03-12",
+      "city": "BBSR",
+      "gender": "female"
+    },
+    {
+      "id": "f11f",
+      "username": "rupali",
+      "age": "24",
+      "email": "qutubuddinkhan8261@gmail.com",
+      "password": "Qwe123@dsfd",
+      "dob": "2026-03-24",
+      "city": "BBSR",
+      "gender": "male"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
