@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff, AlertCircle } from "lucide-react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -60,9 +62,33 @@ const Login = () => {
     // Simulate API call
     try {
       // Your login logic here
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const { data } = await axios.get("http://localhost:3000/users");
+      const currUser = data.find((ele) => ele.email === formData.email);
+      console.log(currUser);
+
+      if (!currUser) {
+        toast.error("User not found!!");
+
+        setErrors({
+          email: "Email not found",
+          password: "Error",
+        });
+      }
+      if (currUser.password !== formData.password) {
+        setErrors({
+          password: "Password didn't match",
+        });
+        return;
+      }
+
+      //! generate a token and store the token in local storage
+      const token = "hsdjkhfdjsk.jsdhfkd32374238ghfdk." + currUser.id;
+      localStorage.setItem("jwt_token", JSON.stringify(token));
+
+      toast.success("Login successful");
+
       console.log("Login attempted with:", formData);
-      navigate("/");
+      navigate("/dashboard");
       // Handle successful login
     } catch (error) {
       console.error("Login failed:", error);

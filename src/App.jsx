@@ -1,4 +1,4 @@
-// import { ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 // import ConditionalRendering from "./concepts/conditionalrendering/ConditionalRendering";
 // import TernaryRender from "./concepts/conditionalrendering/TernaryRender";
 // import CreationComponent from "./concepts/creationComponent/CreationComponent";
@@ -62,7 +62,7 @@ const App = () => {
 
       <CrudOperationHome />
 
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 };
