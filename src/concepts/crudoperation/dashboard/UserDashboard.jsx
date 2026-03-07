@@ -1,23 +1,64 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { AiFillHome } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
+import { FaEdit } from "react-icons/fa";
+import { FaRegNoteSticky } from "react-icons/fa6";
 import { GrDocumentUpdate } from "react-icons/gr";
-import { NavLink, useNavigate } from "react-router-dom";
+import { MdLogout } from "react-icons/md";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { GlobalContextApi } from "../context/GlobalContext";
 
 const UserDashboard = () => {
-  const [isActive, setIsActive] = useState("profile");
+  const [isActive, setIsActive] = useState("dashboard");
   const navigate = useNavigate();
+
+  const { setCurrUser, currUser } = useContext(GlobalContextApi);
 
   const sidebar_items = [
     {
+      name: "dashboard",
+      path: "/dashboard",
+      icon: AiFillHome,
+    },
+    {
       name: "profile",
+      path: "/dashboard/profile",
       icon: CgProfile,
     },
     {
       name: "update profile",
+      path: "/dashboard/updateprofile",
       icon: GrDocumentUpdate,
     },
+    {
+      name: "add notes",
+      path: "/dashboard/addnotes",
+      icon: FaRegNoteSticky,
+    },
+    {
+      name: "update notes",
+      path: "/dashboard/addnotes",
+      icon: FaEdit,
+    },
   ];
+
+  const id = JSON.parse(localStorage.getItem("jwt_token")).split(".")[2];
+  console.log(id);
+
+  const fetch_data = async (params) => {
+    const { data } = await axios.get(`http://localhost:3000/users/${id}`);
+    // console.log(data);
+
+    setCurrUser(data);
+  };
+
+  useEffect(() => {
+    fetch_data();
+  }, []);
+
+  console.log(currUser);
 
   const logoutHandle = () => {
     localStorage.removeItem("jwt_token");
@@ -35,7 +76,7 @@ const UserDashboard = () => {
               return (
                 <li key={idx}>
                   <NavLink
-                    to={"#"}
+                    to={ele.path}
                     className={`p-2 text-md flex items-center gap-2 hover:bg-[#ffffff73] capitalize text-white font-semibold rounded-lg ${isActive === ele.name ? "bg-[#ffffff73]" : ""}`}
                     onClick={() => setIsActive(ele.name)}
                   >
@@ -48,19 +89,14 @@ const UserDashboard = () => {
           </ul>
 
           <button
-            className="bg-blue-950 text-white px-3 py-2 rounded-xl cursor-pointer"
+            className="bg-blue-950 text-white px-3 py-2 rounded-xl cursor-pointer hover:text-lg flex items-center gap-2 font-bold"
             onClick={logoutHandle}
           >
-            Logout
+            <MdLogout /> Logout
           </button>
         </aside>
-        <div className="w-full bg-pink-700 flex items-center justify-center">
-          <img
-            src="https://i.pinimg.com/736x/98/b0/48/98b0481f84564fd1a00cf18670d64b8b.jpg"
-            alt="Obito uchiha"
-            className="w-100 h-full -rotate-90 rounded-2xl"
-          />
-        </div>
+
+        <Outlet />
       </div>
     </div>
   );

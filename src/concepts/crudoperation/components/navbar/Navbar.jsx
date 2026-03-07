@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+import { GlobalContextApi } from "../../context/GlobalContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { currUser } = useContext(GlobalContextApi);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -42,9 +44,15 @@ const Navbar = () => {
 
           {/* Login Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105 hover:shadow-lg cursor-pointer">
-              <Link to={"/login"}>Login</Link>
-            </button>
+            {currUser ? (
+              <h1 className="text-lg capitalize font-medium">
+                {currUser.username}
+              </h1>
+            ) : (
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-200 transform hover:scale-105 hover:shadow-lg cursor-pointer">
+                <Link to={"/login"}>Login</Link>
+              </button>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -74,9 +82,13 @@ const Navbar = () => {
               </NavLink>
             ))}
             <div className="px-3 py-2">
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ">
-                <Link to={"/login"}>Login</Link>
-              </button>
+              {currUser ? (
+                <h1>{currUser.username}</h1>
+              ) : (
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ">
+                  <Link to={"/login"}>Login</Link>
+                </button>
+              )}
             </div>
           </div>
         </div>

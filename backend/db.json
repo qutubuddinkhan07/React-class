@@ -29,6 +29,16 @@
       "dob": "2026-03-30",
       "city": "BBSR",
       "gender": "male"
+    },
+    {
+      "id": "552e",
+      "username": "rupali",
+      "age": "18",
+      "email": "rupaliparida001@gmail.com",
+      "password": "Rupali@123",
+      "dob": "2026-11-20",
+      "city": "BBSR",
+      "gender": "female"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

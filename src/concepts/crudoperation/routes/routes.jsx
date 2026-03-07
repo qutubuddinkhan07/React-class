@@ -3,11 +3,12 @@ import Layout from "../components/layout/Layout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import About from "../pages/About";
-import Profile from "../pages/Profile";
 import Contact from "../pages/contact";
 import Register from "../pages/Register";
 import PrivateRouting from "../privaterouting/PrivateRouting";
 import UserDashboard from "../dashboard/UserDashboard";
+import DashboardHome from "../dashboard/DashboardHome";
+import Profile from "../dashboard/Profile";
 
 export const routes = createBrowserRouter([
   {
@@ -25,6 +26,16 @@ export const routes = createBrowserRouter([
             <UserDashboard />
           </PrivateRouting>
         ),
+        children: [
+          {
+            index: true,
+            element: <DashboardHome />,
+          },
+          {
+            path: "/dashboard/profile",
+            element: <Profile />,
+          },
+        ],
       },
     ],
   },
