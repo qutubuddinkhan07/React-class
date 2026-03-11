@@ -16,6 +16,8 @@ const UserDashboard = () => {
 
   const { setCurrUser, currUser } = useContext(GlobalContextApi);
 
+  const id = JSON.parse(localStorage.getItem("jwt_token")).split(".")[2];
+
   const sidebar_items = [
     {
       name: "dashboard",
@@ -24,12 +26,12 @@ const UserDashboard = () => {
     },
     {
       name: "profile",
-      path: "/dashboard/profile",
+      path: `/dashboard/profile/${id}`,
       icon: CgProfile,
     },
     {
       name: "update profile",
-      path: "/dashboard/updateprofile",
+      path: `/dashboard/updateprofile/${id}`,
       icon: GrDocumentUpdate,
     },
     {
@@ -44,9 +46,6 @@ const UserDashboard = () => {
     },
   ];
 
-  const id = JSON.parse(localStorage.getItem("jwt_token")).split(".")[2];
-  console.log(id);
-
   const fetch_data = async (params) => {
     const { data } = await axios.get(`http://localhost:3000/users/${id}`);
     // console.log(data);
@@ -57,8 +56,6 @@ const UserDashboard = () => {
   useEffect(() => {
     fetch_data();
   }, []);
-
-  console.log(currUser);
 
   const logoutHandle = () => {
     localStorage.removeItem("jwt_token");

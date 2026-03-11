@@ -9,13 +9,22 @@ import PrivateRouting from "../privaterouting/PrivateRouting";
 import UserDashboard from "../dashboard/UserDashboard";
 import DashboardHome from "../dashboard/DashboardHome";
 import Profile from "../dashboard/Profile";
+import UpdateStatus from "../privaterouting/UpdateStatus";
+import UpdateUser from "../dashboard/UpdateUser";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
-      { path: "/", element: <Home /> },
+      {
+        path: "/",
+        element: (
+          <UpdateStatus>
+            <Home />
+          </UpdateStatus>
+        ),
+      },
       { path: "/about", element: <About /> },
       { path: "/profile", element: <Profile /> },
       { path: "/contact", element: <Contact /> },
@@ -28,12 +37,17 @@ export const routes = createBrowserRouter([
         ),
         children: [
           {
-            index: true,
+            path: "/dashboard",
+            // index: true, // this can be used if it doesn't have any children
             element: <DashboardHome />,
           },
           {
-            path: "/dashboard/profile",
+            path: "/dashboard/profile/:userId",
             element: <Profile />,
+          },
+          {
+            path: "/dashboard/updateprofile/:userId",
+            element: <UpdateUser />,
           },
         ],
       },
