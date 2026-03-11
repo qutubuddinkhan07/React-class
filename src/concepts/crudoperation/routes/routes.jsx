@@ -11,6 +11,8 @@ import DashboardHome from "../dashboard/DashboardHome";
 import Profile from "../dashboard/Profile";
 import UpdateStatus from "../privaterouting/UpdateStatus";
 import UpdateUser from "../dashboard/UpdateUser";
+import AllNotes from "../dashboard/dashboardpages/AllNotes";
+import AddNotes from "../dashboard/dashboardpages/AddNotes";
 
 export const routes = createBrowserRouter([
   {
@@ -48,6 +50,14 @@ export const routes = createBrowserRouter([
           {
             path: "/dashboard/updateprofile/:userId",
             element: <UpdateUser />,
+          },
+          {
+            path: "/dashboard/addnotes/:userId",
+            element: <AddNotes />,
+          },
+          {
+            path: "/dashboard/allnotes/:userId",
+            element: <AllNotes />,
           },
         ],
       },

@@ -11,16 +11,6 @@
       "gender": "Male"
     },
     {
-      "id": "a1a6",
-      "username": "qutubuddin",
-      "age": "18",
-      "email": "qutubuddinkhan8261@gmail.com",
-      "password": "123@hjshdfksjdQ",
-      "dob": "2026-03-06",
-      "city": "BBSR",
-      "gender": "male"
-    },
-    {
       "id": "e7a4",
       "username": "iron",
       "age": "18",
@@ -39,6 +29,49 @@
       "dob": "2026-11-20",
       "city": "BBSR",
       "gender": "female"
+    }
+  ],
+  "notes": [
+    {
+      "id": "7545",
+      "title": "dsfdssd",
+      "description": "dfsdf",
+      "tags": "dsfd"
+    },
+    {
+      "id": "f307",
+      "title": "SUMAYU",
+      "description": "Do the LC problem",
+      "tags": "LC, GFG",
+      "userId": "e7a4"
+    },
+    {
+      "id": "e39a",
+      "title": "NUMAN",
+      "description": "sdfsd",
+      "tags": "sdfsd",
+      "userId": "e7a4"
+    },
+    {
+      "id": "9c29",
+      "title": "Numan",
+      "description": "dsfdsfs",
+      "tags": "LC, GFG",
+      "userId": "e7a4"
+    },
+    {
+      "id": "f863",
+      "title": "dsd",
+      "description": "sdfds",
+      "tags": "sjhfksd",
+      "userId": "e7a4"
+    },
+    {
+      "id": "8983",
+      "title": "Dhakichi",
+      "description": "NOOB",
+      "tags": "BGMI",
+      "userId": "552e"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

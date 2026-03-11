@@ -36,12 +36,12 @@ const UserDashboard = () => {
     },
     {
       name: "add notes",
-      path: "/dashboard/addnotes",
+      path: `/dashboard/addnotes/${id}`,
       icon: FaRegNoteSticky,
     },
     {
-      name: "update notes",
-      path: "/dashboard/addnotes",
+      name: "all notes",
+      path: `/dashboard/allnotes/${id}`,
       icon: FaEdit,
     },
   ];
@@ -59,6 +59,7 @@ const UserDashboard = () => {
 
   const logoutHandle = () => {
     localStorage.removeItem("jwt_token");
+    setCurrUser(null);
     navigate("/");
     toast.success("Logged out successfully");
   };

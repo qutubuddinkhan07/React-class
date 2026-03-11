@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { GlobalContextApi } from "../context/GlobalContext";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const Profile = () => {
     const { data } = await axios.get(`http://localhost:3000/users/${userId}`);
     setUser(data);
   };
+  const { currUser, setCurrUser } = useContext(GlobalContextApi);
 
   useEffect(() => {
     fdata();
@@ -21,6 +23,7 @@ const Profile = () => {
     );
     navigate("/");
     localStorage.removeItem("jwt_token");
+    setCurrUser(null);
   };
 
   return (
