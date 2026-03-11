@@ -20,15 +20,26 @@ const AllNotes = () => {
   useEffect(() => {
     fdata();
   }, []);
+
+  const handleDelete = (id) => {
+    setAllNotes((prev) => prev.filter((note) => note.id !== id));
+  };
+
   return (
-    <div className="w-full flex items-center flex-wrap">
-      {allNotes?.map((ele) => {
-        return (
-          <Fragment key={ele.id}>
-            <Notes data={ele} />
-          </Fragment>
-        );
-      })}
+    <div className="w-full flex items-center justify-center flex-wrap">
+      {allNotes.length > 0 ? (
+        allNotes.map((ele) => {
+          return (
+            <Fragment key={ele.id}>
+              <Notes data={ele} onDelete={handleDelete} />
+            </Fragment>
+          );
+        })
+      ) : (
+        <h1 className="text-3xl text-white font-medium">
+          You don't have any notes
+        </h1>
+      )}
     </div>
   );
 };

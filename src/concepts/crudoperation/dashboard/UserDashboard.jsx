@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 import { GlobalContextApi } from "../context/GlobalContext";
 
 const UserDashboard = () => {
-  const [isActive, setIsActive] = useState("dashboard");
   const navigate = useNavigate();
 
   const { setCurrUser, currUser } = useContext(GlobalContextApi);
@@ -75,8 +74,10 @@ const UserDashboard = () => {
                 <li key={idx}>
                   <NavLink
                     to={ele.path}
-                    className={`p-2 text-md flex items-center gap-2 hover:bg-[#ffffff73] capitalize text-white font-semibold rounded-lg ${isActive === ele.name ? "bg-[#ffffff73]" : ""}`}
-                    onClick={() => setIsActive(ele.name)}
+                    end={ele.path === "/dashboard"}
+                    className={({ isActive }) =>
+                      `p-2 text-md flex items-center gap-2 hover:bg-[#ffffff73] capitalize text-white font-semibold rounded-lg ${isActive ? "bg-[#ffffff73]" : ""}`
+                    }
                   >
                     <Icon className="text-xl" />
                     {ele.name}

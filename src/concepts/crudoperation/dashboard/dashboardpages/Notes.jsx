@@ -1,6 +1,18 @@
+import axios from "axios";
 import React from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const Notes = ({ data }) => {
+const Notes = ({ data, onDelete }) => {
+  const deleteNote = async (id) => {
+    if (!confirm("Are you sure that you want to delete?")) {
+      return;
+    }
+    const { data } = await axios.delete(`http://localhost:3000/notes/${id}`);
+    toast.success(`${data.title} delete successfully`);
+    // onDelete(id);
+  };
+
   return (
     <div className="max-w-sm mx-auto mt-6 bg-white shadow-md rounded-xl overflow-hidden border border-gray-200">
       <div className="p-4">
@@ -28,9 +40,14 @@ const Notes = ({ data }) => {
         {/* Buttons */}
         <div className="flex justify-end gap-2">
           <button className="px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg text-sm font-medium">
-            Update
+            <Link to={`/dashboard/editnotes/${data.userId}/${data.id}`}>
+              Update
+            </Link>
           </button>
-          <button className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm font-medium">
+          <button
+            className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm font-medium"
+            onClick={() => deleteNote(data.id)}
+          >
             Delete
           </button>
         </div>
