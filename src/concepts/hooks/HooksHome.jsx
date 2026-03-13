@@ -9,6 +9,7 @@
 // import StateWithProps from "./usestatehook/usestatewithprops/StateWithProps";
 
 import UseCallBackHook from "./usecallbackhook/UseCallBackHook";
+import UseReducerHook from "./usereducerhook/UseReducerHook";
 
 const HooksHome = () => {
   return (
@@ -29,7 +30,9 @@ const HooksHome = () => {
 
       {/* <UseMemoHook /> */}
 
-      <UseCallBackHook />
+      {/* <UseCallBackHook /> */}
+
+      <UseReducerHook />
     </div>
   );
 };

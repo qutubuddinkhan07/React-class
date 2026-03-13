@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { axiosInstance } from "../../../axiosconcept/axiosinstance";
 
 const AddNotes = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const AddNotes = () => {
 
     // api call
     try {
-      const { data } = await axios.post("http://localhost:3000/notes", {
+      const { data } = await axiosInstance.post("/notes", {
         ...formData,
         userId,
       });

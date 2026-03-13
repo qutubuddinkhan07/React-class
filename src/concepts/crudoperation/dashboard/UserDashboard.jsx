@@ -46,10 +46,14 @@ const UserDashboard = () => {
   ];
 
   const fetch_data = async (params) => {
-    const { data } = await axios.get(`http://localhost:3000/users/${id}`);
-    // console.log(data);
+    try {
+      const { data } = await axios.get(`http://localhost:3000/users/${id}`);
+      // console.log(data);
 
-    setCurrUser(data);
+      setCurrUser(data);
+    } catch (error) {
+      console.error("some error occured ", error);
+    }
   };
 
   useEffect(() => {
