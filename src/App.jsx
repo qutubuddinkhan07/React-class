@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 // import CreationComponent from "./concepts/creationComponent/CreationComponent";
 // import FormHandling from "./concepts/formhandling/FormHandling";
 // import ReactFragments from "./concepts/fragments/ReactFragment";
-import CrudOperationHome from "./concepts/crudoperation/CrudOperationHome";
+// import CrudOperationHome from "./concepts/crudoperation/CrudOperationHome";
 import HooksHome from "./concepts/hooks/HooksHome";
 // import IconsImplement from "./concepts/icons_implementation/IconsImplement";
 // import ImgImplementation from "./concepts/imgimplementation/ImgImplementation";
@@ -36,7 +36,7 @@ const App = () => {
       {/* <IconsImplement /> */}
       {/* <ImgImplementation /> */}
 
-      {/* <HooksHome /> */}
+      <HooksHome />
 
       {/* <ReactFragments /> */}
       {/* <ListAndKeys /> */}
@@ -60,7 +60,7 @@ const App = () => {
 
       {/* <ReactOptimization /> */}
 
-      <CrudOperationHome />
+      {/*<CrudOperationHome /> */}
 
       <ToastContainer />
     </div>
