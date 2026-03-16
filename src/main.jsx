@@ -1,10 +1,19 @@
 import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
 import App from "./App";
+import { store } from "./concepts/reduxtoolkitconcept/app/store";
 import "./index.css";
-import GlobalContext from "./concepts/crudoperation/context/GlobalContext";
 
 createRoot(document.getElementById("root")).render(
-  <GlobalContext>
+  // <Provider store={store}>
+  // <GlobalContext>
+  //   <App />
+  // </GlobalContext>,
+  // </Provider>,
+
+  // ------------ OR --------
+
+  <Provider store={store}>
     <App />
-  </GlobalContext>,
+  </Provider>,
 );
