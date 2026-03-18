@@ -9,7 +9,7 @@ const ReduxTookitConcept = () => {
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-r from-stone-900 to-fuchsia-800">
-      <div>
+      {/* <div>
         <h1>Counter Appp</h1>
         <h1 className="text-2xl mb-3">{result}</h1>
         <button
@@ -30,7 +30,7 @@ const ReduxTookitConcept = () => {
         >
           Reset
         </button>
-      </div>
+      </div> */}
 
       <Login />
     </div>

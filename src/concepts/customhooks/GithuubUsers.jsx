@@ -2,7 +2,7 @@ import React from "react";
 import usefetch from "./utils/usefetchhook";
 import { toast } from "react-toastify";
 
-const CustomHook = () => {
+const GithuubUsers = () => {
   const { urlData, loading, error } = usefetch("https://api.github.com/users");
   if (error) {
     toast.error(error);
@@ -22,4 +22,4 @@ const CustomHook = () => {
   );
 };
 
-export default CustomHook;
+export default GithuubUsers;
